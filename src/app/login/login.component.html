@@ -1,0 +1,25 @@
+<h1>Login</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+
+      <form #loginForm="ngForm">
+        <fieldset>
+          <legend class="text-center">Valid information is required to add stock. <span class="req"><small>required
+                *</small></span></legend>
+
+
+          <div>
+            User Name: <input type="text" name="username" [(ngModel)]="username">
+            Password: <input type="password" name="password" [(ngModel)]="password">
+
+            <button class="btn btn-success" (click)=onSubmit()>Login</button>
+          </div>
+
+        </fieldset>
+      </form>
+    </div>
+
+  </div>
+</div>

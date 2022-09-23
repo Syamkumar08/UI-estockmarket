@@ -1,0 +1,113 @@
+<h1>Find a Company</h1>
+<div class="container">
+
+  <div class="form-container">
+    <form #findACompany="ngForm">
+      <fieldset>
+        <legend class="text-center">Select Start date, End date and Company. <span class="req"><small>required
+              *</small></span></legend>
+
+        <!-- Datepicker -->
+        <br>
+        <div class="row">
+          <form class="form-inline ">
+            <div class="row">
+              <div class="col-6">
+                <div class="form-group">
+                  <div class="input-group">
+                    <label for="startDate"><span class="req">* </span> From date: </label>
+
+                    <input class="form-control" placeholder="yyyy-mm-dd" name="dps" [(ngModel)]="pstartDate"
+                      ngbDatepicker #sd="ngbDatepicker" required>
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary calendar" (click)="sd.toggle()" type="button"></button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Datepicker -->
+
+              <div class="col-6 pull-right">
+                <div class="form-group">
+                  <div class="input-group">
+                    <label for="endDate"><span class="req">* </span> To date: </label>
+
+                    <input class="form-control" placeholder="yyyy-mm-dd" name="dpe" [(ngModel)]="pendDate" ngbDatepicker
+                      #ed="ngbDatepicker" required>
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary calendar" (click)="ed.toggle()" type="button"></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <br>
+
+        <!-- Search form -->
+        <div class="row">
+          <label for="startDate"><span class="req">* </span> Company: </label>
+          <div class="input-group col">
+            <select [(ngModel)]="companyCode" name="comanyCode" id="comanyCode" class="form-control"
+              placeholder="Enter company code..." required>
+              <option *ngFor="let company of responseCompanies" [value]="company.company.code" required>{{
+                company.company.name}}</option>
+            </select>
+            <button type="submit" class="btn btn-outline-success pull-right"
+              (click)="findStocksBetweenDates()" [disabled]="!findACompany.valid" >Search</button>
+          </div>
+        </div>
+
+        <div *ngIf="showInfo">
+        <!-- Company info -->
+        <div class="spacer">
+          <p>
+            <label for="companyCode" class="font-weight-bold col-sm-3 ">Company Code:</label>
+            <label for="companyCode" class="font-weight-light col-sm-9">{{comCode}}</label>
+          </p>
+          <p>
+            <label for="companyCode" class="font-weight-bold col-sm-3">Company Name:</label>
+            <label for="companyCode" class="font-weight-light col-sm-9">{{comName}}</label>
+
+          </p>
+          <p>
+            <label for="companyCode" class="font-weight-bold col-sm-3 ">Minimum stock price:</label>
+            <label for="companyCode" class="font-weight-light col-sm-9">{{min}}</label>
+          </p>
+          <p>
+            <label for="companyCode" class="font-weight-bold col-sm-3 ">Maximum stock price:</label>
+            <label for="companyCode" class="font-weight-light col-sm-9">{{max}}</label>
+          </p>
+          <p>
+            <label for="companyCode" class="font-weight-bold col-sm-3 ">Average stock price:</label>
+            <label for="companyCode" class="font-weight-light col-sm-9">{{ave}}</label>
+          </p>
+        </div>
+
+        <!-- List of stock -->
+        <div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Stock price</th>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let response of responseStoks">
+                <td>{{ response.stockPrice | currency }}</td>
+                <td>{{ response.createDateTime | date: "mediumDate" }}</td>
+                <td>{{ response.createDateTime | date: "mediumTime" }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      </fieldset>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<h1>Add Stock</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+           <!-- Success alert -->
+        <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong>Success !</strong> Stock has been added.
+          <button (click)="closeAlert(addStockForm)" type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+            <form #addStockForm="ngForm">
+                <fieldset>
+                    <legend class="text-center">Valid information is required to add stock. <span class="req"><small>required *</small></span></legend>
+
+                    <div class="form-group">
+                        <label for="comanyCode"><span class="req">* </span> Company Code:</label>
+                        <select  [(ngModel)]="companyCode" name="comanyCode" id="comanyCode"
+                            class="form-control" placeholder="Enter company code..." required>
+                            <option *ngFor="let company of responseCompanies" [value]='company.companyCode' required>{{company.companyCode}}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="stockPrice"><span class="req">* </span> Stock price: </label>
+                        <input class="form-control" type="text" [(ngModel)]="stock.stockPrice" name="stockPrice" id="txt" required
+                            placeholder="Enter stock price" required />
+                        <div id="errFirst"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <!-- <input class="btn btn-success" type="submit" name="submit_reg" value="Add stock" (click)="addStockNow()"> -->
+                        <button class="btn btn-success" type="submit" (click)="addStockNow()" [disabled]="!addStockForm.valid">Add Stock</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+

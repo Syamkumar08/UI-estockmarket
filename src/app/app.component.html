@@ -1,0 +1,28 @@
+
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div>
+      <a class="navbar-brand">E-Stock Market</a>
+    </div>
+
+    <ul class="navbar-nav">
+      <li> <a class="nav-link" routerLink="add-company">Register company</a></li>
+      <li><a class="nav-link" routerLink="add-stock">Add stock</a></li>
+      <li><a class="nav-link" routerLink="get-all-companies">List all componies</a></li>
+      <li><a class="nav-link" routerLink="get-a-company">Find a company</a></li>
+    </ul>
+
+    <ul class="navbar-nav navbar-collapse justify-content-end">
+      <li><a class="nav-link" routerLink="login">Login</a></li>
+      <li><a class="nav-link" routerLink="signup">signup</a></li>
+      <!-- <li><a class="nav-link" routerLink="login">Logout</a></li> -->
+    </ul>
+
+
+  </nav>
+</header>
+
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
