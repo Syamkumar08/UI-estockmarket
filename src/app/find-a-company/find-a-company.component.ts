@@ -38,9 +38,9 @@ export class FindACompanyComponent implements OnInit {
   }
 
   public findStocksBetweenDates() {
-     this.endNexday = new Date(this.pendDate.year, this.pendDate.month - 1, this.pendDate.day + 1);
-    this.endDate =this.datepipe.transform(this.endNexday, 'yyyy-MM-dd')
-    this.startDate = this.pstartDate.year + '-' + this.pstartDate.month + '-' + this.pstartDate.day
+    this.endDate =this.datepipe.transform(new Date(this.pendDate.year, this.pendDate.month - 1, this.pendDate.day + 1), 'yyyy-MM-dd');
+    this.startDate = this.datepipe.transform(new Date(this.pstartDate.year, this.pstartDate.month-1, this.pstartDate.day), 'yyyy-MM-dd');
+
 
 
     this.service.doFindStocksBetweenDates(this.companyCode, this.startDate, this.endDate)

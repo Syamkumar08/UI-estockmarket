@@ -7,7 +7,7 @@ import { LoginData } from '../model/LoginData';
 import { User } from '../model/User';
 import { environment } from '../../environments/environment';
 
-const BACKEND_URL = 'http://localhost:9191';
+const BACKEND_URL = 'http://localhost:8081';
 
 @Injectable({
   providedIn: 'root'

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddCompanyComponent } from './add-company/add-company.component';
 import { AddStockComponent } from './add-stock/add-stock.component';
-import { EditCompanyComponent } from './edit-company/edit-company.component';
+//import { EditCompanyComponent } from './edit-company/edit-company.component';
 import { ErrorComponent } from './error/error.component';
 import { FindACompanyComponent } from './find-a-company/find-a-company.component';
 import { ListAllCompaniesComponent } from './list-all-companies/list-all-companies.component';
@@ -17,7 +17,7 @@ const routes: Routes = [
 { path: 'get-a-company', component: FindACompanyComponent },
 { path: 'add-stock', component: AddStockComponent },
 { path: 'add-company', component: AddCompanyComponent },
-{ path: 'get-all-companies/edit/:code', component: EditCompanyComponent },
+//{ path: 'get-all-companies/edit/:code', component: EditCompanyComponent },
 { path: '**', component: ErrorComponent },
 ];
 @NgModule({
