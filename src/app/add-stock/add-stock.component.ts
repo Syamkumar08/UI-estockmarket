@@ -43,7 +43,7 @@ export class AddStockComponent implements OnInit {
       },
       (error) => {
         console.warn(error);
-        this.errormessage = "Validate the values";
+        this.errormessage = "values provided are not correct";
         this.errorAlert = true;
         this.alert = false;
       }
