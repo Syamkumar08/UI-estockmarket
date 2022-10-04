@@ -12,7 +12,7 @@ import { ListAllCompaniesComponent } from './list-all-companies/list-all-compani
 import { ErrorComponent } from './error/error.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { FindACompanyComponent } from './find-a-company/find-a-company.component'
+import { FindAStockComponent } from './find-a-stock/find-a-stock.component'
 import { DatePipe } from '@angular/common';
 import { EditCompanyComponent } from './edit-company/edit-company.component';
 import { FlashMessagesModule } from 'angular2-flash-messages';
@@ -27,7 +27,7 @@ import { AuthInterceptor } from './interceptors/auth-interceptor';
     AddCompanyComponent,
     ListAllCompaniesComponent,
     ErrorComponent,
-    FindACompanyComponent,
+    FindAStockComponent,
     EditCompanyComponent
   ],
   imports: [

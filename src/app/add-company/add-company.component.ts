@@ -29,7 +29,17 @@ export class AddCompanyComponent implements OnInit {
     this.company
     this.service.doRegisterCompany(this.company).subscribe(
       (data) => {
-        console.warn(data);
+        if (data.status == "406 NOT_ACCEPTABLE") {
+          this.alert = false;
+          this.errormessage = data.message;
+          this.errorAlert = true;
+          console.warn(data);
+        }else{
+          this.errorAlert = false;
+          this.alert = true;
+          console.info(data);
+          this.service.doAddStock(this.stockRequest.stockPrice,this.company.companyCode).subscribe()
+        }
       },
       (error) => {
         // console.warn(error);

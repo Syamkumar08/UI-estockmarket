@@ -10,7 +10,12 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-
+        <div *ngIf="errorAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>{{errormessage}}</strong>
+            <button (click)="closeAlert(addStockForm)" type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
             <form #addStockForm="ngForm">
                 <fieldset>
                     <legend class="text-center">Valid information is required to add stock. <span class="req"><small>required *</small></span></legend>

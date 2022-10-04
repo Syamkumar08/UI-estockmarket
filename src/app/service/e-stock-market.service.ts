@@ -20,7 +20,9 @@ export class EStockMarketService {
   constructor(private http:HttpClient) { }
 
   public doAddStock(stock: any, companyCode: any) {  
-    return this.http.post("http://localhost:8085/api/v1.0/market/stock/add/" + companyCode+"/"+stock, {responseType:'text' as 'json'});
+    const headers = { 'content-type': 'application/json'}  
+    const body = JSON.stringify(stock)
+    return this.http.post("http://localhost:8085/api/v1.0/market/stock/add/" + companyCode, body,  {'headers':headers});
   }
 
   public doRegisterCompany(stransactionCompany: any): Observable<any>{
@@ -43,10 +45,14 @@ export class EStockMarketService {
 
 
   public getAllStocks() {
-    return this.http.get("http://localhost:8081/api/v1.0/market/stock/getall");
+    return this.http.get("http://localhost:8085/api/v1.0/market/stock/getAll");
   }
 
   public getAllCompanies() {
+    return this.http.get<TransactionCompany>("http://localhost:8081/api/v1.0/market/company/getAll" );
+  }
+  
+  public getAllCompaniesWithStocks() {
     return this.http.get<TransactionCompany>("http://localhost:8081/api/v1.0/market/company/getAllCompaniesWithStocks" );
   }
 

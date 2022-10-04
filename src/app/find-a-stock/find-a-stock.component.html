@@ -1,8 +1,8 @@
-<h1>Find a Company</h1>
+<h1>Find a Stock</h1>
 <div class="container">
 
   <div class="form-container">
-    <form #findACompany="ngForm">
+    <form #findAStock="ngForm">
       <fieldset>
         <legend class="text-center">Select Company, Start date and End date. <span class="req"><small>required
               *</small></span></legend>
@@ -56,7 +56,7 @@
         </div>
         <br>
         <button type="submit" class="btn btn-outline-success pull-right" (click)="findStocksBetweenDates()"
-        [disabled]="!findACompany.valid">Search</button>
+        [disabled]="!findAStock.valid">Search</button>
 
         <div *ngIf="showInfo">
           <!-- Company info -->
@@ -80,7 +80,7 @@
             </p>
             <p>
               <label for="companyCode" class="font-weight-bold col-sm-3 ">Average stock price:</label>
-              <label for="companyCode" class="font-weight-light col-sm-9">{{ave}}</label>
+              <label for="companyCode" class="font-weight-light col-sm-9">{{avg}}</label>
             </p>
           </div>
 
@@ -95,14 +95,17 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let response of responseStoks">
-                  <td>{{ response.stockPrice | currency }}</td>
-                  <td>{{ response.createDateTime | date: "mediumDate" }}</td>
-                  <td>{{ response.createDateTime | date: "mediumTime" }}</td>
+                <tr *ngFor="let response of responseStocks">
+                  <td>{{ response.price | currency }}</td>
+                  <td>{{ response.date | date: "mediumDate" }}</td>
+                  <td>{{ response.timeStamp | date: "mediumTime" }}</td>
                 </tr>
               </tbody>
             </table>
           </div>
+        </div>
+        <div *ngIf="!showInfo">
+          <label for="companyCode" class="font-weight-bold col-sm-3 ">{{message}}</label>
         </div>
       </fieldset>
     </form>

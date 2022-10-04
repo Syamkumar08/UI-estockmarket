@@ -14,7 +14,9 @@ export class AddStockComponent implements OnInit {
   companyCode: any;
   responseCompanies: any;
   alert: boolean = false
-
+  errorAlert: boolean = false;
+  errormessage: string | undefined = undefined;
+  response:any
 
   constructor(private service: EStockMarketService) { }
 
@@ -25,12 +27,35 @@ export class AddStockComponent implements OnInit {
   }
 
   public addStockNow() {
-    this.service.doAddStock(this.stock.stockPrice, this.companyCode).subscribe()
-    this.alert = true
+    this.service.doAddStock(this.stock.stockPrice, this.companyCode).subscribe(
+      (res) => {
+        this.response=res;
+        if (this.response.data.message != null) {
+          this.alert = false;
+          this.errormessage = this.response.data.message;
+          this.errorAlert = true;
+          console.warn(this.response);
+        }else{
+          this.errorAlert = false;
+          this.alert = true;
+          console.info(this.response);
+        }
+      },
+      (error) => {
+        console.warn(error);
+        this.errormessage = "Validate the values";
+        this.errorAlert = true;
+        this.alert = false;
+      }
+    );
+    if (!this.errorAlert) {
+      this.alert = true;
+    }
   }
 
   closeAlert(addCompanyForm: NgForm) {
     this.alert = false
+    this.errorAlert = false;
     addCompanyForm.reset();
   }
 

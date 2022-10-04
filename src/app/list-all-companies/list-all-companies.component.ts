@@ -14,7 +14,7 @@ export class ListAllCompaniesComponent implements OnInit {
 
   ngOnInit(): void {
    
-    this.service.getAllCompanies().subscribe((data) => {
+    this.service.getAllCompaniesWithStocks().subscribe((data) => {
   
       console.warn(data);
       this.responseCompanies = data;
