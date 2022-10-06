@@ -7,7 +7,7 @@ import { LoginData } from '../model/LoginData';
 import { User } from '../model/User';
 import { environment } from '../../environments/environment';
 
-const BACKEND_URL = 'http://localhost:8081';
+const BACKEND_URL = 'https://companyestock.azurewebsites.net';
 
 @Injectable({
   providedIn: 'root'

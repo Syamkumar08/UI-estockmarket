@@ -22,11 +22,10 @@ export class ListAllCompaniesComponent implements OnInit {
   }
 
   deleteCompany(companyCode: any) {
-    this.service.doDeleteACompany(companyCode).subscribe((result)=>{
-      const deletedCompany = this.responseCompanies.find((x:any) => {x.code === companyCode});
+    this.service.doDeleteACompany(companyCode).subscribe(() => {
+      const deletedCompany = this.responseCompanies.find((x: any) => { x.code === companyCode });
       this.responseCompanies.splice(this.responseCompanies.indexOf(deletedCompany), 1)
-      // console.warn('Result:' , result);
-
+      console.warn('Company delete succesfully');
     })
   }
 }
