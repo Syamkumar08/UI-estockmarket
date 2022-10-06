@@ -1,5 +1,11 @@
 <h1>List of all Companies</h1>
 <div class="container">
+  <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success !</strong> Company has been deleted.
+    <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
 <Fieldset>
   <legend class="text-center">List of the all companies with their latest stock price.</legend>
 <div>
@@ -34,6 +40,7 @@
 
     </tbody>
   </table>
+
 </div>
 </Fieldset>
 </div>
