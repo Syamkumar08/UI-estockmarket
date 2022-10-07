@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class TransactionCompany {\n  constructor(company) {\n    this.company = company;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}
