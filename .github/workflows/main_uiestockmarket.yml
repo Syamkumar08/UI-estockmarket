@@ -52,4 +52,4 @@ jobs:
           app-name: 'UIEStockMarket'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A5F3040A21FA4DB6A7952169402F7A5E }}
-          package: dist
+          package: .
