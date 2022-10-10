@@ -22,13 +22,13 @@ export class EStockMarketService {
   public doAddStock(stock: any, companyCode: any) {  
     const headers = { 'content-type': 'application/json'}  
     const body = JSON.stringify(stock)
-    return this.http.post("https://stockestockmarket.azurewebsites.net/api/v1.0/market/stock/add/" + companyCode, body,  {'headers':headers});
+    return this.http.post("http://stock.hsf2huftcxdxg3d7.canadacentral.azurecontainer.io:8082/api/v1.0/market/stock/add/" + companyCode, body,  {'headers':headers});
   }
 
   public doRegisterCompany(stransactionCompany: any): Observable<any>{
     const headers = { 'content-type': 'application/json'}  
     const body = JSON.stringify(stransactionCompany)
-    return this.http.post("https://companyestock.azurewebsites.net/api/v1.0/market/company/register" ,body , {'headers':headers})
+    return this.http.post("http://company.fzhzfxafbda9fhbw.canadacentral.azurecontainer.io:8081/api/v1.0/market/company/register" ,body , {'headers':headers})
     .pipe(catchError(this.handleError));
   }
 
@@ -45,31 +45,31 @@ export class EStockMarketService {
 
 
   public getAllStocks() {
-    return this.http.get("https://stockestockmarket.azurewebsites.net/api/v1.0/market/stock/getAll");
+    return this.http.get("http://stock.hsf2huftcxdxg3d7.canadacentral.azurecontainer.io:8082/api/v1.0/market/stock/getAll");
   }
 
   public getAllCompanies() {
-    return this.http.get<TransactionCompany>("https://companyestock.azurewebsites.net/api/v1.0/market/company/getAll" );
+    return this.http.get<TransactionCompany>("http://company.fzhzfxafbda9fhbw.canadacentral.azurecontainer.io:8081/api/v1.0/market/company/getAll" );
   }
   
   public getAllCompaniesWithStocks() {
-    return this.http.get<TransactionCompany>("https://companyestock.azurewebsites.net/api/v1.0/market/company/getAllCompaniesWithStocks" );
+    return this.http.get<TransactionCompany>("http://company.fzhzfxafbda9fhbw.canadacentral.azurecontainer.io:8081/api/v1.0/market/company/getAllCompaniesWithStocks" );
   }
 
   public doFindStocksBetweenDates(companyCode: any, startDate: Date, enddate: Date) {
-    return this.http.get(`https://stockestockmarket.azurewebsites.net/api/v1.0/market/stock/get/${companyCode}/${startDate}/${enddate}`)
+    return this.http.get(`http://stock.hsf2huftcxdxg3d7.canadacentral.azurecontainer.io:8082/api/v1.0/market/stock/get/${companyCode}/${startDate}/${enddate}`)
   }
 
   public doDeleteACompany (companyCode: any) {
-    return this.http.delete(`https://companyestock.azurewebsites.net/api/v1.0/market/company/delete/${companyCode}`,{responseType:'text' as 'json'})
+    return this.http.delete(`http://company.fzhzfxafbda9fhbw.canadacentral.azurecontainer.io:8081/api/v1.0/market/company/delete/${companyCode}`,{responseType:'text' as 'json'})
   }
 
   public doGetCompanyByCode(companyCode: any) {
-    return this.http.get(`https://companyestock.azurewebsites.net/api/v1.0/market/company/info/${companyCode}`)
+    return this.http.get(`http://company.fzhzfxafbda9fhbw.canadacentral.azurecontainer.io:8081/api/v1.0/market/company/info/${companyCode}`)
   }
 
   public doUpdateACompany (company: any) {
-    return this.http.put(`https://companyestock.azurewebsites.net/api/v1.0/market/company/update`, company)
+    return this.http.put(`http://company.fzhzfxafbda9fhbw.canadacentral.azurecontainer.io:8081/api/v1.0/market/company/update`, company)
   }
 }
 
