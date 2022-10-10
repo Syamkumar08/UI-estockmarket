@@ -2,7 +2,7 @@ export class Company {
   companyCode: any
   companyName: any
   companyCEO: any
-  companyTurnover: any
+  companyTurnOver: any
   companyWebsite: any
   stockExchange: any
 }

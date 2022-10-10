@@ -18,7 +18,7 @@
         <th scope="col">Turnover</th>
         <th scope="col">Website</th>
         <th scope="col">Enlisted Stock Exchange</th>
-        <th scope="col">Latest Stock Price</th>
+        <!-- <th scope="col">Latest Stock Price</th> -->
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -27,10 +27,10 @@
         <td>{{response.company.companyName}}</td>
         <td>{{response.company.companyCode}}</td>
         <td>{{response.company.companyCEO}}</td>
-        <td>{{response.company.companyTurnover | currency}}</td>
+        <td>{{response.company.companyTurnOver | currency}}</td>
         <td>{{response.company.companyWebsite}}</td>
         <td>{{response.company.stockExchange}}</td>
-        <td>{{response.stock.currentPrice}}</td>
+        <!-- <td>{{response.stock.currentPrice}}</td> -->
         <td><i class="fa fa-trash" style="font-size:20px; color:red; cursor: pointer;"
             (click)="deleteCompany(response.company.companyCode)"></i></td>
         <td>

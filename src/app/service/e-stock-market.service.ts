@@ -28,7 +28,7 @@ export class EStockMarketService {
   public doRegisterCompany(stransactionCompany: any): Observable<any>{
     const headers = { 'content-type': 'application/json'}  
     const body = JSON.stringify(stransactionCompany)
-    return this.http.post("http://company.fzhzfxafbda9fhbw.canadacentral.azurecontainer.io:8081/api/v1.0/market/company/register" ,body , {'headers':headers})
+    return this.http.post("http://company.fzhzfxafbda9fhbw.canadacentral.azurecontainer.io:8081/api/v1.0/market/company/register" ,body)
     .pipe(catchError(this.handleError));
   }
 
@@ -45,11 +45,11 @@ export class EStockMarketService {
 
 
   public getAllStocks() {
-    return this.http.get("http://stock.hsf2huftcxdxg3d7.canadacentral.azurecontainer.io:8082/api/v1.0/market/stock/getAll");
+    return this.http.get("http://stock.hsf2huftcxdxg3d7.canadacentral.azurecontainer.io:8082/api/v1.0/market/stock/getall");
   }
 
   public getAllCompanies() {
-    return this.http.get<TransactionCompany>("http://company.fzhzfxafbda9fhbw.canadacentral.azurecontainer.io:8081/api/v1.0/market/company/getAll" );
+    return this.http.get<TransactionCompany>("http://company.fzhzfxafbda9fhbw.canadacentral.azurecontainer.io:8081/api/v1.0/market/company/getall" );
   }
   
   public getAllCompaniesWithStocks() {

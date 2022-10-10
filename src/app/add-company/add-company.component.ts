@@ -26,7 +26,6 @@ export class AddCompanyComponent implements OnInit {
     this.transactionCompany = new TransactionCompany(
       this.company
     );
-    this.company
     this.service.doRegisterCompany(this.company).subscribe(
       (data) => {
         if (data.status == "406 NOT_ACCEPTABLE") {
